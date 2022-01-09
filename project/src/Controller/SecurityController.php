@@ -14,9 +14,17 @@ class SecurityController extends AbstractController
      */
     public function home(AuthenticationUtils $authenticationUtils): Response
     {
-        return new Response('Vous êtes connecté !');
+        return $this->render('users/index.html.twig');
     }
 
+    /**
+     * @Route("/users", name="users")
+     */
+    public function index()
+    {
+        return $this->render('users/index.html.twig');
+    }
+    
     /**
      * @Route("/login", name="app_login")
      */
