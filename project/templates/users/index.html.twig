@@ -1,10 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+        
+        <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Mon profil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Mes commandes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Mon panier</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_logout') }}">Me deconnecter</a>
+        </li>
+        </ul>
+        
 
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+           
+            <p>Bonjour {{app.user.first_name}} {{app.user.last_name}}</p>
         </div>
 
 

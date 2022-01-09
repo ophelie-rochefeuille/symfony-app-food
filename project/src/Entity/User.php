@@ -51,6 +51,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->id;
     }
+    
+    public function getFirst_name(): ?string
+    {
+        return $this->first_name;
+    }
+
+    public function setFirst_name(string $first_name): self
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    public function getLast_name(): ?string
+    {
+        return $this->last_name;
+    }
+
+    public function setLast_name(string $last_name): self
+    {
+        $this->first_name = $last_name;
+
+        return $this;
+    }
 
     public function getEmail(): ?string
     {
