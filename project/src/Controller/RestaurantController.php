@@ -12,12 +12,15 @@ use Doctrine\ORM\EntityManagerInterface;
 class RestaurantController extends AbstractController
 {
     /**
-     * @Route("/restaurant", name="restaurant")
+     * @Route("/restaurant", name="restaurants")
      */
-    public function index(): Response
+    public function index(EntityManagerInterface $em): Response
     {
+       $repo = $em->getRepository(Restaurant::class);
+       $restaurants = $repo->findAll();
+
         return $this->render('restaurant/index.html.twig', [
-            'controller_name' => 'RestaurantController',
+            'restaurants' => $restaurants
         ]);
     }
 

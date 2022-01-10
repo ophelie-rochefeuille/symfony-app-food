@@ -8,13 +8,28 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+ <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Mon profil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('restaurants') }}">Mes restaurants</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_logout') }}">Me deconnecter</a>
+        </li>
+        </ul>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/project/src/Controller/RestaurantController.php'|file_link(0) }}">src/Controller/RestaurantController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/project/templates/restaurant/index.html.twig'|file_link(0) }}">templates/restaurant/index.html.twig</a></code></li>
-    </ul>
+<div class="example-wrapper">
+   {% for restaurant in restaurants %}
+   <article>
+   <h1>{{restaurant.getName()}}</h1>
+   <p>{{restaurant.getAdress()}}</p>
+   <p>{{restaurant.getPhone()}}</p>
+
+   </article>
+   {% endfor %}
+
+   <button><a class="nav-link" href="{{ path('restaurant') }}">Créer un nouveau restaurant</a></button>
 </div>
 {% endblock %}

@@ -8,6 +8,19 @@
 </style>
 
 <div class="example-wrapper">
+
+ <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Mon profil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('restaurants') }}">Mes restaurants</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_logout') }}">Me deconnecter</a>
+        </li>
+        </ul>
+        
     <h1>Création d'un restaurant</h1>
 
     <form method="POST">
