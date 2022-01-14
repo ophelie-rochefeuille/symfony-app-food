@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        
-        <ul class="nav justify-content-end">
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .container{margin-left: auto; margin-right:auto}
+    .row{justify-content:center}
+</style>
+
+  <ul class="nav justify-content-end">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Mon profil</a>
         </li>
@@ -16,32 +22,21 @@
             <a class="nav-link" href="{{ path('app_logout') }}">Me deconnecter</a>
         </li>
         </ul>
-        
 
-        <div class="mb-3">
-           
-            <p>Bonjour {{app.user.first_name}} {{app.user.last_name}}</p>
-        </div>
 
-        
 <div class="container">
   <div class="row">
- {% for restaurant in restaurants %}
-
    <div class="card col-4 m-2" style="width: 18rem;">
    <img src="{{ restaurant.getImage()}}" class="card-img-top" alt="{{ restaurant.getName() }}">
   <div class="card-body">
     <h5 class="card-title">Restaurant : {{restaurant.getName()}}</h5>
     <p class="card-text">Adresse : {{restaurant.getAdress()}}</p>
    <p class="card-text">Téléphone : {{restaurant.getPhone()}}</p>
-    <a class="btn btn-primary" href="{{ path('informations_restaurant', {id: restaurant.id}) }}">Consulter</a>
-  </div>
-</div>
-
-   {% endfor %}
-
   </div>
 </div>
 
 
+
+  </div>
+</div>
 {% endblock %}

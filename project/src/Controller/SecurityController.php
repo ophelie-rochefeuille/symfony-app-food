@@ -6,15 +6,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Entity\Restaurant;
+use Doctrine\ORM\EntityManagerInterface;
 
 class SecurityController extends AbstractController
 {
+
+
     /**
-     * @Route("/home", name="home")
+     * @Route("/home/restaurants", name="restaurant_list")
      */
-    public function home(AuthenticationUtils $authenticationUtils): Response
+    public function home(AuthenticationUtils $authenticationUtils, EntityManagerInterface $em): Response
     {
-        return $this->render('users/index.html.twig');
+       $repo = $em->getRepository(Restaurant::class);
+       $restaurants = $repo->findAll();
+
+        return $this->render('users/index.html.twig', [
+            'restaurants' => $restaurants
+        ]);
     }
 
     /**
@@ -26,7 +35,7 @@ class SecurityController extends AbstractController
     }
     
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
