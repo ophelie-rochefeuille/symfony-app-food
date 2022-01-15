@@ -9,7 +9,8 @@ Avoir Docker installé et télécharger la bdd envoyée par mail
 Démarrer le projet: 
 
 - Cloner le projet et afficher l'invite de commande dans celui-ci
-- Commande à executer dans le terminal (être placé dans le dossier où figure le docker-compose.yml): "docker-compose up -d"
+- Commande à executer dans le terminal (dans "symfony-app-food/project") afin d'installer les dépendances nécessaires : "composer install --ignore-platform-reqs"
+- Commande à executer dans le terminal (être placé dans le dossier où figure le docker-compose.yml "symfony-app-food/"): "docker-compose up -d"
 - lancer les localhosts suivants : 
   - Pour l'affichage de l'application:  "http://localhost:8741/"
   - Pour phpMyAdmin: "http://localhost:5000/"
